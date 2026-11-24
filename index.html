@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="A clean, modern demo website hosted on GitHub Pages.">
+  <title>Nova — A Little Demo Site</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1020;--panel:#131b31;--muted:#a8b3ca;--text:#f5f7ff;--accent:#9b8cff;--line:#283451}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#292253 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1080px,calc(100% - 40px));margin:auto}
+    header{padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font-weight:800;letter-spacing:.08em}.brand span{color:var(--accent)}nav{display:flex;gap:24px;color:var(--muted);font-size:14px}
+    .hero{padding:105px 0 90px;max-width:760px}.eyebrow{color:#c0b7ff;text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:700}
+    h1{font-size:clamp(44px,8vw,76px);line-height:1.04;letter-spacing:-.055em;margin:18px 0}.hero p{color:var(--muted);font-size:18px;max-width:610px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{padding:12px 19px;border-radius:12px;font-weight:700;border:1px solid var(--line);display:inline-block}.primary{background:var(--accent);color:#111027;border-color:transparent}.section{padding:45px 0 90px}.section h2{font-size:30px;letter-spacing:-.03em}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:24px;border:1px solid var(--line);background:#111a2dcc;border-radius:18px}.card .emoji{font-size:25px}.card p{color:var(--muted);margin-bottom:0}.pill{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:5px 10px;color:var(--muted);font-size:12px}
+    footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px}
+    @media(max-width:700px){nav{gap:12px}.cards{grid-template-columns:1fr}.hero{padding:75px 0 60px}header{align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <header class="wrap"><a class="brand" href="#">NOVA<span>.</span></a><nav><a href="#features">Features</a><a href="#about">About</a></nav></header>
+  <main>
+    <section class="hero wrap">
+      <span class="eyebrow">A tiny corner of the internet</span>
+      <h1>Ideas become<br><span style="color:#b9adff">something real.</span></h1>
+      <p>Welcome to Nova, a simple responsive demo website. It is lightweight, works on phones and desktops, and is published with GitHub Pages.</p>
+      <div class="actions"><a class="btn primary" href="#features">Explore the demo ↗</a><a class="btn" href="https://github.com/ua9372688-droid/minecraft-practice-discord-bot1">View source</a></div>
+    </section>
+    <section class="section wrap" id="features"><span class="pill">WHAT'S INSIDE</span><h2>Small site. Solid foundations.</h2>
+      <div class="cards">
+        <article class="card"><div class="emoji">✦</div><h3>Thoughtful design</h3><p>A calm dark theme, clear typography, and a layout that adapts to your screen.</p></article>
+        <article class="card"><div class="emoji">⚡</div><h3>Quick to load</h3><p>Plain HTML and CSS, with no frameworks, build step, or external dependencies.</p></article>
+        <article class="card"><div class="emoji">⌘</div><h3>Easy to edit</h3><p>Change this page in the repository and GitHub Pages can publish the update.</p></article>
+      </div>
+    </section>
+    <section class="section wrap" id="about"><span class="pill">ABOUT THIS DEMO</span><h2>Made to be a starting point.</h2><p style="color:var(--muted);max-width:650px">This is a sample landing page, not a real business or service. Replace the text, colors, and sections with your own project whenever you're ready.</p></section>
+  </main>
+  <footer><div class="wrap">© <span id="year"></span> Nova Demo · Hosted with GitHub Pages</div></footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
