@@ -3,40 +3,91 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1020">
-  <meta name="description" content="A clean, modern demo website hosted on GitHub Pages.">
-  <title>Nova — A Little Demo Site</title>
+  <meta name="theme-color" content="#100b09">
+  <meta name="description" content="KAEL Client — a Minecraft client with a collection of configurable modules.">
+  <title>KAEL Client — Minecraft, Reimagined</title>
   <style>
-    :root{color-scheme:dark;--bg:#0b1020;--panel:#131b31;--muted:#a8b3ca;--text:#f5f7ff;--accent:#9b8cff;--line:#283451}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#292253 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-    a{color:inherit;text-decoration:none}.wrap{width:min(1080px,calc(100% - 40px));margin:auto}
-    header{padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{font-weight:800;letter-spacing:.08em}.brand span{color:var(--accent)}nav{display:flex;gap:24px;color:var(--muted);font-size:14px}
-    .hero{padding:105px 0 90px;max-width:760px}.eyebrow{color:#c0b7ff;text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:700}
-    h1{font-size:clamp(44px,8vw,76px);line-height:1.04;letter-spacing:-.055em;margin:18px 0}.hero p{color:var(--muted);font-size:18px;max-width:610px}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{padding:12px 19px;border-radius:12px;font-weight:700;border:1px solid var(--line);display:inline-block}.primary{background:var(--accent);color:#111027;border-color:transparent}.section{padding:45px 0 90px}.section h2{font-size:30px;letter-spacing:-.03em}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:24px;border:1px solid var(--line);background:#111a2dcc;border-radius:18px}.card .emoji{font-size:25px}.card p{color:var(--muted);margin-bottom:0}.pill{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:5px 10px;color:var(--muted);font-size:12px}
-    footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:13px}
-    @media(max-width:700px){nav{gap:12px}.cards{grid-template-columns:1fr}.hero{padding:75px 0 60px}header{align-items:flex-start}}
+    :root{color-scheme:dark;--bg:#100b09;--panel:#1b1210;--panel2:#241813;--text:#f2e6dc;--muted:#b59d8c;--bronze:#a8795b;--bright:#d0a487;--line:#493126}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#513323 0,transparent 48%),linear-gradient(180deg,#100b09,#0a0807 70%);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 42px));margin:auto}
+    header{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #38271f}
+    .brand{font-weight:950;letter-spacing:.19em;font-size:21px}.brand span{color:var(--bright)}
+    nav{display:flex;gap:28px;color:var(--muted);font-size:13px;letter-spacing:.08em;text-transform:uppercase}nav a:hover{color:var(--bright)}
+    .hero{min-height:650px;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:90px 0 100px}
+    .hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 42px,#b17e5c08 43px 45px),radial-gradient(ellipse at center,#6b402522,transparent 62%);pointer-events:none}
+    .crest{position:relative;width:112px;height:112px;margin:0 auto 25px;border:1px solid #9d7054;transform:rotate(45deg);display:grid;place-items:center;box-shadow:0 0 55px #a8795b24,inset 0 0 25px #a8795b17}
+    .crest span{transform:rotate(-45deg);font-size:49px;font-weight:950;letter-spacing:-.12em;color:#d0a487;text-shadow:0 3px 20px #a8795b55}
+    .eyebrow{position:relative;color:var(--bright);font-size:11px;letter-spacing:.34em;text-transform:uppercase;font-weight:800}
+    h1{position:relative;font-size:clamp(58px,12vw,112px);line-height:.95;letter-spacing:.12em;margin:28px 0 14px;font-weight:950;text-shadow:0 8px 45px #000}
+    .subtitle{position:relative;letter-spacing:.48em;text-transform:uppercase;color:#c5a38d;font-size:clamp(10px,2vw,14px);margin:0 0 28px}
+    .intro{position:relative;color:var(--muted);font-size:17px;max-width:650px;margin:0 auto}
+    .actions{position:relative;display:flex;justify-content:center;gap:13px;flex-wrap:wrap;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border:1px solid #76513d;background:#211611;color:var(--text);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:12px;transition:.2s}
+    .btn:hover{border-color:var(--bright);transform:translateY(-2px);background:#302016}.primary{background:linear-gradient(135deg,#b18464,#80563e);color:#160e0a;border-color:#d0a487}.primary:hover{background:linear-gradient(135deg,#d0a487,#a8795b)}
+    .section{padding:76px 0;border-top:1px solid #38271f}.section-head{text-align:center;margin-bottom:34px}.kicker{color:var(--bright);font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:800}
+    h2{font-size:clamp(29px,5vw,42px);letter-spacing:.04em;margin:10px 0}.section-head p,.muted{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:25px;border:1px solid var(--line);background:linear-gradient(145deg,#241812dd,#140e0c);min-height:180px;position:relative}.card:before{content:"";position:absolute;top:0;left:0;width:34px;height:2px;background:var(--bronze)}
+    .symbol{font-size:25px;color:var(--bright)}.card h3{margin:12px 0 6px;letter-spacing:.04em}.card p{margin:0;color:var(--muted);font-size:14px}
+    .download{max-width:760px;margin:auto;text-align:center;padding:38px;border:1px solid #654531;background:radial-gradient(ellipse at top,#5a352522,transparent 65%),#1a110e}
+    .status{display:inline-block;border:1px solid #76513d;padding:5px 11px;color:#d0a487;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+    .download h2{margin:18px 0 8px}.download p{color:var(--muted);margin:0 auto 24px;max-width:540px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:step}.step{border-top:1px solid var(--line);padding:18px 8px}.step:before{counter-increment:step;content:"0" counter(step);color:var(--bright);letter-spacing:.18em;font-size:12px}.step h3{margin:8px 0}.step p{color:var(--muted);font-size:13px;margin:0}
+    footer{border-top:1px solid #38271f;padding:27px 0;color:var(--muted);font-size:12px;letter-spacing:.06em}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    @media(max-width:720px){nav{gap:12px;font-size:10px}.cards,.steps{grid-template-columns:1fr}.hero{min-height:590px;padding:70px 0}.crest{width:86px;height:86px}.crest span{font-size:38px}.download{padding:28px 18px}header{height:72px}}
   </style>
 </head>
 <body>
-  <header class="wrap"><a class="brand" href="#">NOVA<span>.</span></a><nav><a href="#features">Features</a><a href="#about">About</a></nav></header>
-  <main>
+  <header class="wrap">
+    <a class="brand" href="#top">K<span>A</span>EL</a>
+    <nav><a href="#modules">Modules</a><a href="#download">Download</a><a href="#install">Install</a></nav>
+  </header>
+  <main id="top">
     <section class="hero wrap">
-      <span class="eyebrow">A tiny corner of the internet</span>
-      <h1>Ideas become<br><span style="color:#b9adff">something real.</span></h1>
-      <p>Welcome to Nova, a simple responsive demo website. It is lightweight, works on phones and desktops, and is published with GitHub Pages.</p>
-      <div class="actions"><a class="btn primary" href="#features">Explore the demo ↗</a><a class="btn" href="https://github.com/ua9372688-droid/minecraft-practice-discord-bot1">View source</a></div>
-    </section>
-    <section class="section wrap" id="features"><span class="pill">WHAT'S INSIDE</span><h2>Small site. Solid foundations.</h2>
-      <div class="cards">
-        <article class="card"><div class="emoji">✦</div><h3>Thoughtful design</h3><p>A calm dark theme, clear typography, and a layout that adapts to your screen.</p></article>
-        <article class="card"><div class="emoji">⚡</div><h3>Quick to load</h3><p>Plain HTML and CSS, with no frameworks, build step, or external dependencies.</p></article>
-        <article class="card"><div class="emoji">⌘</div><h3>Easy to edit</h3><p>Change this page in the repository and GitHub Pages can publish the update.</p></article>
+      <div>
+        <div class="crest" aria-label="KAEL emblem"><span>K</span></div>
+        <div class="eyebrow">Enter a different realm</div>
+        <h1>KAEL</h1>
+        <div class="subtitle">Minecraft Client</div>
+        <p class="intro">A Minecraft client built around a collection of modules. Explore the features, make it your own, and step into the world of KAEL.</p>
+        <div class="actions"><a class="btn primary" href="#download">Get KAEL Client</a><a class="btn" href="#modules">Explore Modules</a></div>
       </div>
     </section>
-    <section class="section wrap" id="about"><span class="pill">ABOUT THIS DEMO</span><h2>Made to be a starting point.</h2><p style="color:var(--muted);max-width:650px">This is a sample landing page, not a real business or service. Replace the text, colors, and sections with your own project whenever you're ready.</p></section>
+
+    <section class="section" id="modules">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">The toolkit</div><h2>Modules. Your way.</h2><p>A collection of client modules designed to give you configurable tools in Minecraft.</p></div>
+        <div class="cards">
+          <article class="card"><div class="symbol">✧</div><h3>Combat</h3><p>Combat-related module category. Individual module details will be added soon.</p></article>
+          <article class="card"><div class="symbol">⌘</div><h3>Movement</h3><p>Movement-related module category. Individual module details will be added soon.</p></article>
+          <article class="card"><div class="symbol">◈</div><h3>Visuals & Utility</h3><p>Visual and utility module categories. More information coming soon.</p></article>
+        </div>
+        <p class="muted" style="text-align:center;font-size:12px;margin-top:18px">Module categories are placeholders until the official module list is provided.</p>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="wrap">
+        <div class="download">
+          <span class="status">Download coming soon</span>
+          <h2>Ready to enter KAEL?</h2>
+          <p>The client download will be available here once the official .jar file is uploaded. Check back for the release.</p>
+          <span class="btn" aria-disabled="true" style="opacity:.55;cursor:not-allowed">.JAR NOT AVAILABLE YET</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker">Getting started</div><h2>Installation guide</h2><p>Official setup steps will be published with the client release.</p></div>
+        <div class="steps">
+          <div class="step"><h3>Download</h3><p>Get the official KAEL Client .jar from this page when it is released.</p></div>
+          <div class="step"><h3>Check requirements</h3><p>Review the supported Minecraft version and Java requirements provided with the release.</p></div>
+          <div class="step"><h3>Launch</h3><p>Follow the official installation instructions included with the release.</p></div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="wrap">© <span id="year"></span> Nova Demo · Hosted with GitHub Pages</div></footer>
+  <footer><div class="wrap foot"><span>© <span id="year"></span> KAEL CLIENT</span><span>Unofficial Minecraft client project · Not affiliated with Mojang or Microsoft</span></div></footer>
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
